@@ -9,10 +9,16 @@
       <li class="nav-item">>
         <a [routerLink]="['/createEntry']" routerLinkActive="active">Create Entry</a>
       </li>
+      <li class="nav-item" *ngIf="userService.currentUserIsAdmin()">
+        <a [routerLink]="['/todo']" routerLinkActive="active"> Todo </a>
+      </li>
+      <li class="nav-item" *ngIf="userService.currentUserIsAdmin()">
+        <a [routerLink]="['/admin']" routerLinkActive="active"> Admin </a>
+      </li>
     </ul>
     <ul class="nav navbar-nav">
       <li>
-        <a [routerLink] = "['user/login']" routerLinkActive="active"> Login </a>
+        <a [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
       </li>
     </ul>
   </nav>

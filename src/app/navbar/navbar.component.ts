@@ -12,6 +12,8 @@ import { UserService } from "../data-service/user.service";
       `]})
 export class NavbarComponent implements OnInit {
   constructor(private userService: UserService) {
+    var name = this.userService.getCurrentUser().userName
+    console.log(name)
   }
   ngOnInit() {
   }

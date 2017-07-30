@@ -14,12 +14,12 @@
   </md-toolbar>
 
   <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item> Settings</button>
+    <button md-menu-item>Settings</button>
     <button md-menu-item>Logout</button>
   </md-menu>
 
   <md-card color="primary">
-    <button md-raised-button color="accent">Show my Entries</button>
-    <button md-raised-button color="accent">Create new Entry</button>
+    <button md-raised-button [routerLink] = "['/entries']" color="accent">Show my Entries</button>
+    <button md-raised-button [routerLink] = "['/createEntry']" color="accent">Create new Entry</button>
   </md-card>
 </div>

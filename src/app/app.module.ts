@@ -14,11 +14,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DownsmanAppComponent } from './downsman-app/downsman-app.component';
 import { UserService } from "./data-service/user.service";
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { EntryListComponent } from './entry/list/entry-list/entry-list.component';
+import { EntryComponent } from './entry/single/entry/entry.component';
+import { CreateEditEntryComponent } from './entry/single/create-edit-entry/create-edit-entry.component';
+import { DebugComponent } from './debug/debug.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    DownsmanAppComponent
+    DownsmanAppComponent,
+    EntryListComponent,
+    EntryComponent,
+    CreateEditEntryComponent,
+    DebugComponent
     ],
   imports: [
     BrowserModule,

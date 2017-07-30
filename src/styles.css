@@ -1,38 +1,25 @@
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~font-awesome/css/font-awesome.css";
-
-/* app css stylesheet */
-.hoverwell:hover {
-    background-color: #485563;
-    cursor: pointer;
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
 }
 
-.container {
-    padding-top: 10px;
+md-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
 }
 
-.pointable {
-    cursor: pointer;
+md-toolbar-row {
+  justify-content: space-between;
 }
 
-button {
-    color: #555;
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
 }
 
-[hidden] {
-    display: none !important;
-}
-
-.toast-success {
-    background-color: #51a351;
-}
-.toast-error {
-    background-color: #bd362f;
-}
-.toast-info {
-    background-color: #2f96b4;
-}
-.toast-warning {
-    background-color: #f89406;
-}

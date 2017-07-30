@@ -1,25 +1,28 @@
-<div class="navbar navbar-default">
+<div>
+  <md-toolbar color="primary">
+    <span><md-icon>mood</md-icon></span>
 
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-    <a class="navbar-brand" href="#">Downsman</a>
-    <ul class="nav navbar-nav mr-auto">
-      <li class="nav-item">
-        <a [routerLink]="['/entries']" routerLinkActive="active">My Entries</a>
-      </li>
-      <li class="nav-item">>
-        <a [routerLink]="['/createEntry']" routerLinkActive="active">Create Entry</a>
-      </li>
-      <li class="nav-item" *ngIf="userService.currentUserIsAdmin()">
-        <a [routerLink]="['/todo']" routerLinkActive="active"> Todo </a>
-      </li>
-      <li class="nav-item" *ngIf="userService.currentUserIsAdmin()">
-        <a [routerLink]="['/admin']" routerLinkActive="active"> Admin </a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav">
-      <li>
-        <a [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
-      </li>
-    </ul>
-  </nav>
+    <span>Yay, Material in Angular 2!</span>
+
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item>Option 1</button>
+    <button md-menu-item>Option 2</button>
+  </md-menu>
+
+  <md-card>
+    <button md-button>All</button>
+    <button md-raised-button>Of</button>
+    <button md-raised-button color="primary">The</button>
+    <button md-raised-button color="accent">Buttons</button>
+  </md-card>
+
+  <span class="done">
+    <button md-fab>
+      <md-icon>check circle</md-icon>
+    </button>
+  </span>
 </div>

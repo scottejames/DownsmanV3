@@ -1,27 +1,26 @@
 <div>
   <md-toolbar color="primary">
-    <span><md-icon>mood</md-icon></span>
 
     <span>Downsman Signup Pages</span>
 
-    <button md-icon-button [md-menu-trigger-for]="menu">
-      <md-icon>more_vert</md-icon>
-    </button>
+
+    <span>
+      <button md-icon-button [md-menu-trigger-for]="menu">
+        <md-icon>more_vert</md-icon>
+      </button> 
+      <md-icon>mood</md-icon>
+    </span>
+
   </md-toolbar>
+  <md-icon svgIcon="thumbs-up"></md-icon>
+
   <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item>Option 1</button>
-    <button md-menu-item>Option 2</button>
+    <button md-menu-item>Settings</button>
+    <button md-menu-item>Logout</button>
   </md-menu>
 
   <md-card>
     <button md-raised-button>Show my Entries</button>
     <button md-raised-button>Create new Entry</button>
-    <button md-raised-button>Login</button>
   </md-card>
-
-  <span class="done">
-    <button md-fab>
-      <md-icon>check circle</md-icon>
-    </button>
-  </span>
 </div>

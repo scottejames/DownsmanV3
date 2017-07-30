@@ -4,10 +4,16 @@ import {IEntry} from "../../../data-services/entry.model";
 @Component ({
     selector : 'entry-thumbnail',
     template : `
-      <div [routerLink]="['/viewEntry',entry.id]" class= "well hoverwell thumbnail">
-        <div> <h2>{{entry?.team?.name}} </h2></div>
-        <div> Hike Class: {{entry?.class}} </div>
-      </div>
+      <md-card class="background-primary-color white-text" [routerLink]="['/viewEntry',entry.id]" color="primary" class='entry-thumbnail-class'>
+        <md-card-header>
+            <md-card-title>Team Name: {{entry?.team?.name}}</md-card-title>
+        </md-card-header>
+        <md-card-content>
+
+        <p> Hike Class: {{entry?.class}} </p>
+        </md-card-content>
+
+    </md-card>
 `,
     styles: [`
   .pad-left { margin-left : 10px; }

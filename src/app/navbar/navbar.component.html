@@ -3,6 +3,10 @@
 
     <span>Downsman Signup Pages</span>
 
+    <div valign="centre">
+      <button md-raised-button [routerLink] = "['/entries']" color="accent">Show my Entries</button>
+      <button md-raised-button [routerLink] = "['/createEntry']" color="accent">Create new Entry</button>
+    </div>
 
     <span>
       <button md-icon-button [md-menu-trigger-for]="menu">
@@ -18,8 +22,5 @@
     <button md-menu-item>Logout</button>
   </md-menu>
 
-  <md-card color="primary">
-    <button md-raised-button [routerLink] = "['/entries']" color="accent">Show my Entries</button>
-    <button md-raised-button [routerLink] = "['/createEntry']" color="accent">Create new Entry</button>
-  </md-card>
+
 </div>

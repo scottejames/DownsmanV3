@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core'
+import {EntryService } from '../../../data-services/entry.service'
+import {IEntry } from '../../../data-services/entry.model'
+import {UserService} from "../../../data-services/user.service";
 
 @Component({
-  selector: 'dm-entry-list',
-  templateUrl: './entry-list.component.html',
-  styleUrls: ['./entry-list.component.css']
+    template: `
+	<div>
+		<h1> My Entries </h1>
+	 	<hr/>
+	 	<div *ngIf="entries" class="row">
+	 		<div *ngFor="let entry of entries" class="col-md-5">
+	 			<entry-thumbnail #thumbnail [entry]="entry"></entry-thumbnail>
+	 		</div>
+	 	</div>
+	</div>
+
+  `
 })
+
 export class EntryListComponent implements OnInit {
+    entries: IEntry[]
 
-  constructor() { }
+    constructor(private entryService: EntryService, private userService : UserService) {
+    }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+        this.entries = this.entryService.getEntries(this.userService.getCurrentUser());
+    }
 }

@@ -10,21 +10,20 @@ body {
     color: white;
     background-color: #9575CD;
   }
-
+.thumb-background {
+    color: black;
+    background-color: lightgray;
+  }
 md-card {
   max-width: 80%;
   margin: 2em auto;
-  text-align: center;
+  text-align: left;
 }
-entry-thumbnail-class {
-  background-color: 'black';
-}
+
 md-toolbar-row {
   justify-content: space-between;
 }
-body {
-    background-color: yellow;
-}
+
 .done {
   position: fixed;
   bottom: 20px;

@@ -4,22 +4,33 @@ import {IEntry} from "../../../data-services/entry.model";
 @Component ({
     selector : 'entry-thumbnail',
     template : `
-      <md-card class="background-primary-color white-text" [routerLink]="['/viewEntry',entry.id]" color="primary" class='entry-thumbnail-class'>
+      <md-card color="primary" class='entry-thumbnail-class'>
         <md-card-header>
-            <md-card-title>Team Name: {{entry?.team?.name}}</md-card-title>
+            <md-card-title><h2>{{entry?.team?.name}}</h2></md-card-title>
         </md-card-header>
         <md-card-content>
-
-        <p> Hike Class: {{entry?.class}} </p>
+            <div class="thumb-background">
+                <div class="row">
+                    <div class="col-md-4">
+                        Class: 
+                    </div>
+                    <div class="col-md-8">
+                        {{entry?.class}}
+                    </div>
+                    <div class="col-md-4">
+                        Start: 
+                    </div>
+                    <div class="col-md-8">
+                        {{entry?.prefStartTime}}
+                    </div>
+                </div>
+            </div>
         </md-card-content>
-
+        <md-card-actions layout="row" layout-align="end center">
+            <button md-raised-button [routerLink] = "['/viewEntry',entry.id]" color="accent">Edit</button>
+        </md-card-actions>
     </md-card>
-`,
-    styles: [`
-  .pad-left { margin-left : 10px; }
-  .well div {color: #bbb; }
-  .thumbnail {min-height: 210px; }
-  `]
+`
 
 })
 export class EntryThumbnailComponent {

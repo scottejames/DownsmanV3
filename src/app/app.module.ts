@@ -21,6 +21,7 @@ import { EntryComponent } from './entry/single/entry/entry.component';
 import { CreateEditEntryComponent } from './entry/single/create-edit-entry/create-edit-entry.component';
 import { DebugComponent } from './debug/debug.component';
 import { EntryThumbnailComponent } from './entry/list/entry-thumbnail/entry-thumbnail.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -38,6 +39,8 @@ import { EntryThumbnailComponent } from './entry/list/entry-thumbnail/entry-thum
     MaterialModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule
   ],
   providers: [UserService,
     RefDataService,

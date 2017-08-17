@@ -1,36 +1,21 @@
-import {Component,Input,Output,EventEmitter} from '@angular/core'
-import {IEntry} from "../../../data-services/entry.model";
+import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { IEntry } from "../../../data-services/entry.model";
 
-@Component ({
-    selector : 'entry-thumbnail',
-    template : `
-      <md-card color="primary" class='entry-thumbnail-class'>
-        <md-card-header>
-            <md-card-title><h2>{{entry?.team?.name}}</h2></md-card-title>
-        </md-card-header>
-        <md-card-content>
-            <div class="thumb-background">
-                <div class="row">
-                    <div class="col-md-4">
-                        Class: 
-                    </div>
-                    <div class="col-md-8">
-                        {{entry?.class}}
-                    </div>
-                    <div class="col-md-4">
-                        Start: 
-                    </div>
-                    <div class="col-md-8">
-                        {{entry?.prefStartTime}}
-                    </div>
-                </div>
-            </div>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-            <button md-raised-button [routerLink] = "['/viewEntry',entry.id]" color="accent">Edit</button>
-        </md-card-actions>
-    </md-card>
-`
+@Component({
+    selector: 'entry-thumbnail',
+    template: `
+    <div [routerLink]="['/viewEntry',entry.id]" class= "well hoverwell thumbnail">
+    <div> <h2> {{entry?.team?.name}} </h2></div>
+    <div> Hike Class: {{entry?.class}} </div>
+
+  </div>
+`,
+    styles: [`
+        .well {color: black; background: lightgray;margin-bottom: 20px}
+        .thumbnail {min-height: 210px;}
+        
+`]
+        
 
 })
 export class EntryThumbnailComponent {

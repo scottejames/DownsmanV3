@@ -1,91 +1,84 @@
-<form [formGroup]="entryForm"  (ngSubmit)="save(entryForm.value)" novalidate>
-    <div class="row">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button *ngIf="this.entry && isValidated()==false" type="button" class="btn" (click)="validateTeam()">Submit</button>
-        <button *ngIf="this.entry && isValidated()==true" type="button" class="btn" (click)="invalidateTeam()">UnSumbmit</button>
-        <button *ngIf="this.entry" type="button" class="btn" (click)="delete()">Delete</button>
-        <button type="button" class="btn" (click)="cancel()">Cancel</button>
-
-        <em class="pull-right" style="font-size: xx-large"> {{validatedString()}} </em>
+<form [formGroup]="entryForm" (ngSubmit)="save(entryForm.value)" novalidate>
+    <div class="row header">
+        <div class="button-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button *ngIf="this.entry && isValidated()==false" type="button" class="btn" (click)="validateTeam()">Submit</button>
+            <button *ngIf="this.entry && isValidated()==true" type="button" class="btn" (click)="invalidateTeam()">UnSumbmit</button>
+            <button *ngIf="this.entry" type="button" class="btn" (click)="delete()">Delete</button>
+            <button type="button" class="btn" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="valid-string"> {{validatedString()}} </div>
     </div>
+
     <h3> Hike Info </h3>
 
-
-    <div class="row">
+    <div class="row formblock">
         <label for="class" class="col-md-2 "> Hike Class: </label>
         <div class="col-md-4">
-
-
             <select formControlName="class" required id="class" type="text" class="form-control">
-                <option *ngFor="let c of hikeClasses" value="{{c}}">{{c}}</option>
-            </select>
+                    <option *ngFor="let c of hikeClasses" value="{{c}}">{{c}}</option>
+                </select>
         </div>
 
         <label for="prefStartTime" class="col-md-2 "> Prefered start time: </label>
         <div class="col-md-4">
 
-            <input formControlName="prefStartTime" id="prefStartTime" type="text" class="form-control"
-                   placeholder="what prefered start time..."/>
+            <input formControlName="prefStartTime" id="prefStartTime" type="text" class="form-control" placeholder="what prefered start time..."
+            />
         </div>
     </div>
     <h3> Team Info </h3>
     <fieldset formGroupName="team">
-        <div class="row">
+        <div class="row formblock">
             <label for="TeamName" class="col-md-2 "> Team Name: </label>
             <div class="col-md-4">
 
-                <input formControlName="name" id="TeamName" type="text" class="form-control"
-                       placeholder="what prefered team name..."/>
+                <input formControlName="name" id="TeamName" type="text" class="form-control" placeholder="what prefered team name..." />
             </div>
 
             <label for="ScoutGroup" class="col-md-2 "> Scout Group: </label>
             <div class="col-md-4">
 
-                <input formControlName="group" id="ScoutGroup" type="text" class="form-control"
-                       placeholder="what scout group..."/>
+                <input formControlName="group" id="ScoutGroup" type="text" class="form-control" placeholder="what scout group..." />
             </div>
 
             <label for="ScoutDistrict" class="col-md-2 "> Scout District: </label>
             <div class="col-md-4">
                 <select formControlName="district" required id="ScoutDistrict" type="text" class="form-control">
-                    <option *ngFor="let c of refData.getDistrictList()" value="{{c}}">{{c}}</option>
-                </select>
+                        <option *ngFor="let c of refData.getDistrictList()" value="{{c}}">{{c}}</option>
+                    </select>
 
             </div>
 
             <label for="ScoutCounty" class="col-md-2 "> Scout County: </label>
             <div class="col-md-4">
                 <select formControlName="county" required id="ScoutCounty" type="text" class="form-control">
-                    <option *ngFor="let c of refData.getCountyList()" value="{{c}}">{{c}}</option>
-                </select>
+                        <option *ngFor="let c of refData.getCountyList()" value="{{c}}">{{c}}</option>
+                    </select>
             </div>
         </div>
 
         <h3> Team Members </h3>
-        <div class=" row">
+        <div class="row formblock">
 
             <fieldSet formArrayName="participants">
-                <div
-                        *ngFor="let participant of entryForm.get('team.participants').controls; let l=index"
-                        [formGroup]="participant">
+                <div class="teamblock" *ngFor="let participant of entryForm.get('team.participants').controls; let l=index" [formGroup]="participant">
                     <label for="name+{{l}}" class="col-md-1"> Name </label>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
 
-                        <input formControlName="name" id="name+{{l}}" type="text" class="form-control"
-                               placeholder="Entrants Name..."/>
+                        <input formControlName="name" id="name+{{l}}" type="text" class="form-control" placeholder="Entrants Name..." />
                     </div>
 
-                    <label for="dob+{{l}}" class="col-md-1"> Date of birth </label>
+                    <label for="dob+{{l}}" class="col-md-1"> DOB </label>
                     <div class="col-md-3">
 
-                        <input formControlName="dob" id="dob+{{l}}" type="date" class="form-control"
-                               placeholder="Entrants Date of Birth..."/>
+                        <input formControlName="dob" id="dob+{{l}}" type="date" class="form-control" placeholder="Entrants Date of Birth..." />
                     </div>
                     <label for="gender+{{l}}" class="col-md-1  padding:10px"> Gender </label>
                     <div class="col-md-2">
                         <select formControlName="gender" required id="gender+{{l}}" type="text" class="form-control">
-                            <option *ngFor="let g of refData.getGenderList()" value="{{g}}">{{g}}</option>
-                        </select>
+                                <option *ngFor="let g of refData.getGenderList()" value="{{g}}">{{g}}</option>
+                            </select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="removeScout(i)">Del</button>
@@ -93,23 +86,24 @@
 
                 </div>
             </fieldSet>
-            <button type="button" class="btn btn-default" (click)="addScout()">Add new member</button>
 
         </div>
-        <div class="row">
+        <button type="button" class="btn btn-default" (click)="addScout()">Add new member</button>
 
-            <label for="StandardMobile" class="col-md-2 "> Scout Standard Mobile: </label>
+        <div class="row formblock">
+
+            <label for="StandardMobile" class="col-md-2 "> Standard Mobile: </label>
             <div class="col-md-4">
 
-                <input formControlName="standardMobile" id="StandardMobile" type="text" class="form-control"
-                       placeholder="what is the mobile number for the team..."/>
+                <input formControlName="standardMobile" id="StandardMobile" type="text" class="form-control" placeholder="mobile number for the team..."
+                />
 
             </div>
-            <label for="EmergencyMobile" class="col-md-2 "> Scout Emergency Mobile: </label>
+            <label for="EmergencyMobile" class="col-md-2 "> Emergency Mobile: </label>
             <div class="col-md-4">
 
-                <input formControlName="emergencyMobile" id="EmergencyMobile" type="text" class="form-control"
-                       placeholder="what is the emergency mobile number for the team...."/>
+                <input formControlName="emergencyMobile" id="EmergencyMobile" type="text" class="form-control" placeholder="emergency mobile number for the team...."
+                />
             </div>
         </div>
     </fieldset>
@@ -118,33 +112,29 @@
         <fieldSet formArray="serviceCrew">
             <div>
 
-                <div *ngFor="let crew of entryForm.get('serviceCrew').controls; let i=index"
-                     [formGroup]="crew">
+                <div class="teamblock" *ngFor="let crew of entryForm.get('serviceCrew').controls; let i=index" [formGroup]="crew">
                     <label for="SCname+{{i}}" class="col-md-1"> Name </label>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
 
-                        <input formControlName="name" id="SCname+{{i}}" type="text" class="form-control"
-                               placeholder="Support Crew Name..."/>
+                        <input formControlName="name" id="SCname+{{i}}" type="text" class="form-control" placeholder="Support Crew Name..." />
                     </div>
                     <label for="SCmobile+{{i}}" class="col-md-1"> Mobile </label>
                     <div class="col-md-2">
 
-                        <input formControlName="mobile" id="SCmobile+{{i}}" type="text" class="form-control"
-                               placeholder="Support Crew Mobile..."/>
+                        <input formControlName="mobile" id="SCmobile+{{i}}" type="text" class="form-control" placeholder="Support Crew Mobile..."
+                        />
                     </div>
 
-                    <label for="SCfrom+{{i}}" class="col-md-1"> Supporting from where </label>
-                    <div class="col-md-1">
+                    <label for="SCfrom+{{i}}" class="col-md-1"> From </label>
+                    <div class="col-md-2">
 
-                        <input formControlName="from" id="SCfrom+{{i}}" type="text" class="form-control"
-                               placeholder="from..."/>
+                        <input formControlName="from" id="SCfrom+{{i}}" type="text" class="form-control" placeholder="from..." />
                     </div>
 
-                    <label for="SCto+{{i}}" class="col-md-1"> Supporting to where </label>
-                    <div class="col-md-1">
+                    <label for="SCto+{{i}}" class="col-md-1"> To </label>
+                    <div class="col-md-2">
 
-                        <input formControlName="to" id="SCto+{{i}}" type="text" class="form-control"
-                               placeholder="to..."/>
+                        <input formControlName="to" id="SCto+{{i}}" type="text" class="form-control" placeholder="to..." />
                     </div>
                     <button type="button" class="btn btn-default" (click)="removeSupport(i)">Del</button>
                 </div>
@@ -162,32 +152,28 @@
                     <label for="ACname" class="col-md-2 "> Name: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="name" id="ACname" type="text" class="form-control"
-                               placeholder="Admin Contact Name:..."/>
+                        <input formControlName="name" id="ACname" type="text" class="form-control" placeholder="Admin Contact Name:..." />
                     </div>
                     <label for="ACaddress" class="col-md-2 "> Address: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="address" id="ACaddress" type="text" class="form-control"
-                               placeholder="Admin Address Name:..."/>
+                        <input formControlName="address" id="ACaddress" type="text" class="form-control" placeholder="Admin Address Name:..." />
                     </div>
                     <label for="ACtelephone" class="col-md-2 "> Telephone: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="telephone" id="ACtelephone" type="text" class="form-control"
-                               placeholder="Admin Contact Telephone:..."/>
+                        <input formControlName="telephone" id="ACtelephone" type="text" class="form-control" placeholder="Admin Contact Telephone:..."
+                        />
                     </div>
                     <label for="ACmobile" class="col-md-2 "> Mobile Telephone: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="mobile" id="ACmobile" type="text" class="form-control"
-                               placeholder="Admin Contact Mobile:..."/>
+                        <input formControlName="mobile" id="ACmobile" type="text" class="form-control" placeholder="Admin Contact Mobile:..." />
                     </div>
                     <label for="ACemail" class="col-md-2 "> Email: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="email" id="ACemail" type="text" class="form-control"
-                               placeholder="Admin Contact Email:..."/>
+                        <input formControlName="email" id="ACemail" type="text" class="form-control" placeholder="Admin Contact Email:..." />
                     </div>
 
                 </fieldset>
@@ -198,26 +184,24 @@
                     <label for="ECname" class="col-md-2 "> Name: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="name" id="ECname" type="text" class="form-control"
-                               placeholder="Emergency Contact Name:..."/>
+                        <input formControlName="name" id="ECname" type="text" class="form-control" placeholder="Emergency Contact Name:..." />
                     </div>
                     <label for="ECaddress" class="col-md-2 "> Address: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="address" id="ECaddress" type="text" class="form-control"
-                               placeholder="Emergency Contact Address..."/>
+                        <input formControlName="address" id="ECaddress" type="text" class="form-control" placeholder="Emergency Contact Address..."
+                        />
                     </div>
                     <label for="ECtelephone" class="col-md-2 "> Telephone: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="telephone" id="ECtelephone" type="text" class="form-control"
-                               placeholder="Admin Contact Telephone:..."/>
+                        <input formControlName="telephone" id="ECtelephone" type="text" class="form-control" placeholder="Admin Contact Telephone:..."
+                        />
                     </div>
                     <label for="ECmobile" class="col-md-2 "> Mobile Telephone: </label>
                     <div class="col-md-4">
 
-                        <input formControlName="mobile" id="ECmobile" type="text" class="form-control"
-                               placeholder="Admin Contact Mobile:..."/>
+                        <input formControlName="mobile" id="ECmobile" type="text" class="form-control" placeholder="Admin Contact Mobile:..." />
                     </div>
                 </fieldset>
             </div>

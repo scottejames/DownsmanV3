@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'downsman-app',
   template: `
 
-        <dm-nav-bar></dm-nav-bar>
-        <div class="main-background">
+        <nav-bar></nav-bar>
+        <div class="routing-outlet">
           <router-outlet></router-outlet>
         </div>
     `

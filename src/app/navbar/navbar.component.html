@@ -1,26 +1,26 @@
-<div>
-  <md-toolbar color="primary">
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+  <a class="navbar-brand" href="#">Downsman</a>
 
-    <span>Downsman Signup Pages</span>
-
-    <div valign="centre">
-      <button md-raised-button [routerLink] = "['/entries']" color="accent">Show my Entries</button>
-      <button md-raised-button [routerLink] = "['/createEntry']" color="accent">Create new Entry</button>
-    </div>
-
-    <span>
-      <button md-icon-button [md-menu-trigger-for]="menu">
-        <md-icon>more_vert</md-icon>
-      </button> 
-      <md-icon>mood</md-icon>
-    </span>
-
-  </md-toolbar>
-
-  <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item>Settings</button>
-    <button md-menu-item>Logout</button>
-  </md-menu>
-
-
-</div>
+  <ul class="nav navbar-nav mr-auto">>
+    <li  class="nav-item active">
+      <a class="nav-link" [routerLink]="['/entries']" routerLinkActive="active">My Entries</a>
+    </li>
+    <li>
+      <a class="nav-link"  [routerLink]="['/createEntry']" routerLinkActive="active">Create Entry</a>
+    </li>
+    <li *ngIf="userService.currentUserIsAdmin()">
+      <a class="nav-link" [routerLink]="['/todo']" routerLinkActive="active"> Todo </a>
+    </li>
+    <li *ngIf="userService.currentUserIsAdmin()">
+      <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active"> Admin </a>
+    </li>
+  </ul>
+  <div class="navbar-header navbar-right">
+    <ul class="nav navbar-nav">
+      <li>
+        <a *ngIf="!userService.isAuthenticated()" [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
+        <a *ngIf="userService.isAuthenticated()" [routerLink]="['user/profile']" routerLinkActive="active"> Welcome {{userService.getCurrentUser().firstName}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

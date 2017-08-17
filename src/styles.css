@@ -1,32 +1,11 @@
-@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
 
 body {
-  margin: 0;
-  font-family: Roboto, sans-serif;
+  padding: 2em 23em;
+  background:lightslategray;
 }
 
-.main-background {
-    color: white;
-    background-color: #9575CD;
-  }
-.thumb-background {
-    color: black;
-    background-color: lightgray;
-  }
-md-card {
-  max-width: 80%;
-  margin: 2em auto;
-  text-align: left;
-}
-
-md-toolbar-row {
-  justify-content: space-between;
-}
-
-.done {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: white;
+.routing-outlet {
+  padding: 3rem 1.5rem;
 }

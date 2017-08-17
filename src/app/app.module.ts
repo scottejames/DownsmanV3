@@ -1,16 +1,8 @@
 import 'hammerjs';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { MaterialModule, } from '@angular/material';
-
-
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { EntryService } from './data-services/entry.service'
 import { RefDataService } from "./data-services/ref-data.service";
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DownsmanAppComponent } from './downsman-app/downsman-app.component';
@@ -22,6 +14,10 @@ import { CreateEditEntryComponent } from './entry/single/create-edit-entry/creat
 import { DebugComponent } from './debug/debug.component';
 import { EntryThumbnailComponent } from './entry/list/entry-thumbnail/entry-thumbnail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { TeamRouteActivator } from "./navbar/guards/TeamRouteActivator";
+import { LoggedInActivator } from "./navbar/guards/LoggedInActivator";
+import { EntryNotOwnerActivator } from "./navbar/guards/EntryNotOwnerActivator";
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,17 +30,20 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
     EntryThumbnailComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    MaterialModule,
-    FlexLayoutModule,
     BrowserAnimationsModule,
-        FormsModule,
-        ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [UserService,
+  providers: [
+    UserService,
     RefDataService,
-    EntryService],
+    EntryService,
+    TeamRouteActivator,
+    LoggedInActivator,
+    EntryNotOwnerActivator,],
   bootstrap: [DownsmanAppComponent]
 })
 export class AppModule { }

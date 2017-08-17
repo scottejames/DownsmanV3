@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from "../data-services/user.service";
 
 @Component({
-  selector: 'dm-nav-bar',
+  selector: 'nav-bar',
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {

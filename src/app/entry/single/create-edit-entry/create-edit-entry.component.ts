@@ -9,14 +9,8 @@ import {UserService} from "../../../data-services/user.service";
 
 @Component({
     templateUrl: 'create-edit-entry.component.html',
-    styles: [`
-        em {float:right; color:#E05C65; padding-left:10px;}    
-        .error input {background-color: #E05C65}
-        .error ::-webkit-input-placeholder{color:#999;}
-        .error ::-moz-placeholder {color:#999;}
-        .error :-moz-placeholder {color:#999;}
-        .error :-ms-input-placeholder {color:#999;}
-        `]
+    styleUrls: ['./create-edit-entry.component.css']
+    
 })
 
 export class CreateEditEntryComponent {

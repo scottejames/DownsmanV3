@@ -10,6 +10,9 @@ export class NavbarComponent implements OnInit {
     var name = this.userService.getCurrentUser().userName
     console.log(name)
   }
+  getUserService():UserService{
+    return this.userService
+  }
   ngOnInit() {
   }
 

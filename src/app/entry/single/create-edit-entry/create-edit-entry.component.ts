@@ -15,7 +15,7 @@ import {UserService} from "../../../data-services/user.service";
 
 export class CreateEditEntryComponent {
 
-    private entry: IEntry;
+    entry: IEntry;
     hikeClasses: string[];
     entryForm: FormGroup;
 
@@ -34,7 +34,9 @@ export class CreateEditEntryComponent {
                 private userService: UserService,
                 private refData: RefDataService) {
     }
-
+    getRefData():RefDataService {
+        return this.refData;
+    }
     validatedString(): string {
         if (this.isValidated())
             return 'Team Is Sumitted (so cant be changed)';

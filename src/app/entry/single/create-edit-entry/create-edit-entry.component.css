@@ -1,5 +1,12 @@
-.header{
+.formblock{
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  
+    
+}
+
+.form-control-group{
     padding: 20px 20px;
     
 }
@@ -13,11 +20,50 @@
     font-size: xx-large;
 }
 
-.formblock{
-    display: flex;
-    padding: 20px 20px;
+.hi-input{
+    width: 200px;
+    padding-right: 0.5em;
+  
 }
 
-.teamblock{
-    display: flex;
+.hi-label{
+    width: 100px;
+    padding-right: 0.5em;
+  
+}
+
+.te-label{
+    width: 4em;
+    padding-right: 0.5em;
+}
+.te-input{
+    width: 8em;
+    padding-right: 0.5em;
+}
+.te-delete-btn {
+    margin-left: auto
+
+}
+.te-add-btn {
+color: green;   
+margin: 20px 20px;
+
+}
+
+.sc-label{
+    width: 5em;
+    padding-right: 0.5em;
+}
+.sc-input{
+    width: 15em;
+    padding-right: 0.5em;
+}
+.sc-delete-btn {
+    margin-left: auto
+
+}
+.sc-add-btn {
+color: green;   
+margin: 20px 20px;
+
 }

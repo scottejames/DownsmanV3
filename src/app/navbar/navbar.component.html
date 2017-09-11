@@ -8,18 +8,18 @@
     <li>
       <a class="nav-link"  [routerLink]="['/createEntry']" routerLinkActive="active">Create Entry</a>
     </li>
-    <li *ngIf="userService.currentUserIsAdmin()">
+    <li *ngIf="getUserService().currentUserIsAdmin()">
       <a class="nav-link" [routerLink]="['/todo']" routerLinkActive="active"> Todo </a>
     </li>
-    <li *ngIf="userService.currentUserIsAdmin()">
+    <li *ngIf="getUserService().currentUserIsAdmin()">
       <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active"> Admin </a>
     </li>
   </ul>
   <div class="navbar-header navbar-right">
     <ul class="nav navbar-nav">
       <li>
-        <a *ngIf="!userService.isAuthenticated()" [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
-        <a *ngIf="userService.isAuthenticated()" [routerLink]="['user/profile']" routerLinkActive="active"> Welcome {{userService.getCurrentUser().firstName}}</a>
+        <a *ngIf="!getUserService().isAuthenticated()" [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
+        <a *ngIf="getUserService().isAuthenticated()" [routerLink]="['user/profile']" routerLinkActive="active"> Welcome {{userService.getCurrentUser().firstName}}</a>
       </li>
     </ul>
   </div>
